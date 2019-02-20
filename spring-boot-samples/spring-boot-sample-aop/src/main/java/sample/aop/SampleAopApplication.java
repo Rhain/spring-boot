@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2013 the original author or authors.
+ * Copyright 2012-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,14 @@
 
 package sample.aop;
 
+import sample.aop.service.HelloWorldService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import sample.aop.service.HelloWorldService;
-
-@Configuration
-@EnableAutoConfiguration
-@ComponentScan
+@SpringBootApplication
 public class SampleAopApplication implements CommandLineRunner {
 
 	// Simple example shows how an application can spy on itself with AOP
@@ -40,7 +36,8 @@ public class SampleAopApplication implements CommandLineRunner {
 		System.out.println(this.helloWorldService.getHelloMessage());
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		SpringApplication.run(SampleAopApplication.class, args);
 	}
+
 }
